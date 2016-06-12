@@ -22,7 +22,7 @@
 学过任何一种编程语言的都知道，算术运算符++是自增操作，比如1 ++，循环100次后应该变成100，可是在并发的情况下，得到的结果可能不是我们想要的，看一下代码：
 
 public class JoinTest extends Thread {
-    public N">
+    public s">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -93,7 +93,7 @@ public class JoinTest extends Thread {
     </p>
   <p class="article-time">
     <time datetime="2016-06-06T10:00:04.000Z" itemprop="datePublished">2016-06-06</time>
-    Update date:<time datetime="2016-06-07T07:50:36.995Z" itemprop="dateModified">2016-06-07</time>
+    Update date:<time datetime="2016-06-12T02:46:10.478Z" itemprop="dateModified">2016-06-12</time>
     
   </p>
 </header>
@@ -103,23 +103,13 @@ public class JoinTest extends Thread {
 <p>学过任何一种编程语言的都知道，算术运算符++是自增操作，比如1 ++，循环100次后应该变成100，可是在并发的情况下，得到的结果可能不是我们想要的，看一下代码：</p>
 </blockquote>
 <pre><code>public class JoinTest extends Thread {
-    public Num num;
-    static class Num {
-        public static int n = 0;
-        public void addNum() {
-            n++;
-        }
-    }
-
-    public JoinTest(Num num) {
-        this.num = num;
-    }
+    public static int n = 0;
 
     @Override
     public void run() {
         for (int i = 0; i &lt; 10; i++) {
             try {
-                num.addNum();
+                n = n + 1;
             } catch (Exception e) {
             }
         }
@@ -127,9 +117,8 @@ public class JoinTest extends Thread {
 
     public static void main(String[] args) {
         Thread[] threads = new Thread[100];
-        Num num = new Num();
         for (int i = 0; i &lt; threads.length; i++) {
-            threads[i] = new JoinTest(num);
+            threads[i] = new JoinTest();
         }
         for (int i = 0; i &lt; threads.length; i++) {
             threads[i].start();
@@ -141,20 +130,16 @@ public class JoinTest extends Thread {
                 e.printStackTrace();
             }
         }
-        System.out.println(&quot;n===&quot; + JoinTest.Num.n);
+        System.out.println(&quot;n===&quot; + n);
     }
 }
-</code></pre><p>运行以上代码后，我们希望得到的结果是1000，可是往往事与愿违，那么如果想要得到1000，我们就必须采取其他的办法，那么java多线程为我们提供了synchronized同步机制，接下来我们就说说详细说说synchronized  </p>
+</code></pre><p>运行以上代码后，我们希望得到的结果是1000，可是往往事与愿违，那么如果想要得到1000，我们就必须采取其他的办法，那么java多线程为我们提供了synchronized同步机制，使操作是原子级别，接下来我们就说说详细说说synchronized  </p>
 <h4 id="一-ensp-使用Synchronized关键字同步类方法"><a href="#一-ensp-使用Synchronized关键字同步类方法" class="headerlink" title="一&ensp;使用Synchronized关键字同步类方法"></a>一&ensp;使用Synchronized关键字同步类方法</h4><ul>
-<li>sychronized关键字只和一个对象实例绑定<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Test  </span><br><span class="line">&#123;  </span><br><span class="line">    public synchronized void method()&#123;  </span><br><span class="line"></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">public class Sync implements Runnable  &#123;  </span><br><span class="line">    private Test test;  </span><br><span class="line">    public void run()&#123;  </span><br><span class="line">        test.method();  </span><br><span class="line">    &#125;  </span><br><span class="line">    public Sync(Test test)&#123;  </span><br><span class="line">        this.test = test;  </span><br><span class="line">    &#125;  </span><br><span class="line">    public static void main(String[] args) throws Exception&#123;  </span><br><span class="line">        Test test1 =  new Test();  </span><br><span class="line">        Test test2 =  new Test();  </span><br><span class="line">        Sync sync1 = new Sync(test1);  </span><br><span class="line">        Sync sync2 = new Sync(test2);  </span><br><span class="line">        new Thread(sync1).start();  </span><br><span class="line">        new Thread(sync2).start();   </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>sychronized关键字只和一个对象实例绑定<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">public class JoinTest extends Thread &#123;</span><br><span class="line"></span><br><span class="line">	public Num num;</span><br><span class="line">	static class Num &#123;</span><br><span class="line">		int n = 0;</span><br><span class="line">		public synchronized void addNum() &#123;</span><br><span class="line">			n++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public JoinTest(Num num) &#123;</span><br><span class="line">		this.num = num;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void run() &#123;</span><br><span class="line">		for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">			try &#123;</span><br><span class="line">				num.addNum();</span><br><span class="line">				sleep(3);</span><br><span class="line">			&#125; catch (Exception e) &#123;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Thread[] threads = new Thread[100];</span><br><span class="line">		Num num = new Num(); //②</span><br><span class="line">		for (int i = 0; i &lt; threads.length; i++) &#123;</span><br><span class="line">			threads[i] = new JoinTest(new Num()); //①</span><br><span class="line">			threads[i] = new JoinTest(num); //②		</span><br><span class="line">		&#125;</span><br><span class="line">		for (int i = 0; i &lt; threads.length; i++) &#123;</span><br><span class="line">			threads[i].start();</span><br><span class="line">		&#125;</span><br><span class="line">		for (int i = 0; i &lt; threads.length; i++) &#123;</span><br><span class="line">			try &#123;</span><br><span class="line">				threads[i].join();</span><br><span class="line">			&#125; catch (InterruptedException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;n===&quot; + num.n);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>在上面代码中，由于main()方法中创建了两个Test类的实例，所以当sync1和sync2执行时，他们是分别执行的，并不共享同一个对象实例。如果要是method()方法同步，则有两种方法可以实现</p>
-<ul>
-<li>在sync1和sync2中使用同一个Test类的实例</li>
-<li>将method()方法改成静态方法  </li>
-</ul>
-<p>也就是说在synchronized可以用在类中的非静态方法和静态方法，那他们有什么区别呢？？</p>
+<p>在上面代码中，由于main()方法中,如果用第①种写法,应为每个线程都持有一个Num实例,并不共享同一个对象实例。所以,想要输出正确的结果,线程必须只和一个对象实例绑定。  </p>
+<p>synchronized不仅可以用来同步非静态方法,也可以同步静态方法，那他们有什么区别呢？？</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">package test;  </span><br><span class="line"> </span><br><span class="line">public class MyThread1 extends Thread  </span><br><span class="line">&#123;  </span><br><span class="line">    public String methodName;  </span><br><span class="line"> </span><br><span class="line">    public static void method(String s)  </span><br><span class="line">    &#123;  </span><br><span class="line">        System.out.println(s);  </span><br><span class="line">        while (true)  </span><br><span class="line">            ;  </span><br><span class="line">    &#125;  </span><br><span class="line">    public synchronized void method1()  </span><br><span class="line">    &#123;  </span><br><span class="line">        method(&quot;非静态的method1方法&quot;);  </span><br><span class="line">    &#125;  </span><br><span class="line">    public synchronized void method2()  </span><br><span class="line">    &#123;  </span><br><span class="line">        method(&quot;非静态的method2方法&quot;);  </span><br><span class="line">    &#125;  </span><br><span class="line">    public static synchronized void method3()  </span><br><span class="line">    &#123;  </span><br><span class="line">        method(&quot;静态的method3方法&quot;);  </span><br><span class="line">    &#125;  </span><br><span class="line">    public static synchronized void method4()  </span><br><span class="line">    &#123;  </span><br><span class="line">        method(&quot;静态的method4方法&quot;);  </span><br><span class="line">    &#125;  </span><br><span class="line">    public void run()  </span><br><span class="line">    &#123;  </span><br><span class="line">        try </span><br><span class="line">        &#123;  </span><br><span class="line">            getClass().getMethod(methodName).invoke(this);  </span><br><span class="line">        &#125;  </span><br><span class="line">        catch (Exception e)  </span><br><span class="line">        &#123;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    public static void main(String[] args) throws Exception  </span><br><span class="line">    &#123;  </span><br><span class="line">        MyThread1 myThread1 = new MyThread1();  </span><br><span class="line">        for (int i = 1; i &lt;= 4; i++)  </span><br><span class="line">        &#123;  </span><br><span class="line">            myThread1.methodName = &quot;method&quot; + String.valueOf(i);  </span><br><span class="line">            new Thread(myThread1).start();  </span><br><span class="line">            sleep(100);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果如下：<br>&ensp;&ensp;非静态的method1方法<br>&ensp;&ensp;静态的method3方法<br>从结果可以看出静态和非静态方法不会互相影响，method1未执行完之前，method2是不能执行的，静态方法也是如此，也就是说synchronized锁定的是一个类。所以，大量使用synchronized关键字会造成不必要的资源消耗以及性能损失</p>
 <h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><ul>
