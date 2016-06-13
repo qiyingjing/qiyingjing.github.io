@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>ʹ��Synchronized��ͬ������ | Qiyj</title>
+  <meta name="author" content="YingJing Qi">
+  
+  <meta name="description" content="synchronized�ؼ����������÷�����һ�־����ڡ�ʹ��Synchronized�ؼ���ͬ���෽����һ���������ܵ�ֱ�����ڷ����Ķ����С�����һ�־���synchronized�顣���ǲ�������ͨ��synchronized��">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="ʹ��Synchronized��ͬ������"/>
+  <meta property="og:site_name" content="Qiyj"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Qiyj" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="Qiyj" title="Qiyj"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">Qiyj</h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	ʹ��Synchronized��ͬ������
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="YingJing Qi">YingJing Qi</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-06-13T03:08:30.000Z" itemprop="datePublished">2016-06-13</time>
+    Update date:<time datetime="2016-06-13T03:09:01.894Z" itemprop="dateModified">2016-06-13</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+        <p>synchronized�ؼ����������÷�����һ�־����ڡ�ʹ��Synchronized�ؼ���ͬ���෽����һ���������ܵ�ֱ�����ڷ����Ķ����С�����һ�־���synchronized�顣���ǲ�������ͨ��synchronized����ͬ��һ������������Ҳ����ʹ��synchronized����ͬ�����еľ�̬�����ͷǾ�̬������</p>
+<p>synchronized�����﷨���£�</p>
+<p>public void method()<br>{<br>    �� ��<br>    synchronized(����ʽ)<br>    {<br>        �� ��<br>    }<br>}<br>һ���Ǿ�̬�෽����ͬ��   </p>
+<p>�ӡ�ʹ��Synchronized�ؼ���ͬ���෽����һ��������֪��ʹ��synchronized�ؼ��������巽���ͻ�������������ʹ��synchronzied�ؼ��ֶ����ľ�̬�������Ǿ�̬���������Ⲣ�������⡣������ʹ��synchronized�����ﵽͬ����Ч�����Ͳ�������Ϊʲô����������Ч���ˡ�������ʹ��synchronized���������������е�ͬ���Ǿ�̬��������Ҫʹ��this��Ϊsynchronized���Ĳ�������synchronized�������������£�</p>
+<p>ͨ��synchronized��ͬ���Ǿ�̬����</p>
+<p>public class SyncBlock<br> {<br>      public void method1()<br>      {<br>          synchronized(this)  // �൱�ڶ�method1����ʹ��synchronized�ؼ���<br>          {<br>              �� ��<br>          }<br>      }<br>      public void method2()<br>      {<br>          synchronized(this)  // �൱�ڶ�method2����ʹ��synchronized�ؼ���<br>          {<br>              �� ��<br>          }<br>      }<br>      public synchronized void method3()<br>      {<br>          �� ��<br>      }<br>  }<br>�������Ĵ����е�method1��method2������ʹ����synchronized�顣����017�е�method3������Ȼʹ��synchronized�ؼ��������巽������ʹ��ͬһ��SyncBlock��ʵ��ʱ������������ֻҪ��һ������ִ�У��������������ͻ���δ����ͬ����������������ʹ��synchronized��ʱҪ���ﵽ��synchronized�ؼ���ͬ����Ч�������뽫���еĴ��붼д��synchronized���У����򣬽��޷�ʹ��ǰ�����е����д����������ķ���ͬ����</p>
+<p>����ʹ��this��Ϊsynchronized���Ĳ����⣬������ʹ��SyncBlock.this��Ϊsynchronized���Ĳ������ﵽͬ����Ч����</p>
+<p>�����ࣨInnerClass���ķ�����ʹ��synchronized����ʱ��thisֻ��ʾ���࣬������(OuterClass)û�й�ϵ���������ķǾ�̬�������Ժ������ķǾ�̬����ͬ������������InnerClass�м�һ��method4��������ʹmethod4������SyncBlock����������ͬ�����������£�</p>
+<p>ʹ�����ķǾ�̬�����������ķǾ�̬����ͬ��</p>
+<p>public class SyncBlock<br>{<br>    �� ��<br>    class InnerClass<br>    {<br>        public void method4()<br>        {<br>            synchronized(SyncBlock.this)<br>            {<br>                �� ��<br>            }<br>        }<br>    }<br>    �� ��<br>}<br>������SyncBlock�����°汾�У�InnerClass����method4������SyncBlock����������������ͬ�������ˣ�method1��method2��method3��method4�ĸ�������ͬһʱ��ֻ����һ������ִ�С�</p>
+<p>Synchronized�鲻��������ִ���꣬������Ϊ�����������쳣�˳�synchronized�飬��ǰ��synchronized�������е�ͬ���������Զ��ͷš����ˣ���ʹ��synchronized��ʱ���ص���ͬ�������ͷ����⡣</p>
+<p>������̬�෽����ͬ��</p>
+<p>�����ڵ��þ�̬����ʱ������ʵ����һ�������������ˣ��Ͳ���ʹ��this��ͬ����̬������������ʹ��Class������ͬ����̬�������������£�</p>
+<p>ͨ��synchronized��ͬ����̬����</p>
+<p>public class StaticSyncBlock<br>  {<br>      public static void method1()<br>      {<br>          synchronized(StaticSyncBlock.class)<br>          {<br>              �� ��<br>          }<br>      }<br>      public static synchronized void method2()<br>      {<br>          �� ��<br>      }<br>  }<br>��ͬ����̬����ʱ����ʹ�����ľ�̬�ֶ�class���õ�Class��������������method1��method2����ͬʱֻ����һ������ִ�С�����ʹ��class�ֶεõ�Class�����⣬������ʹ��ʵ����getClass�������õ�Class�����������еĴ��������޸����£�</p>
+<p>ʹ��getClass�����õ�Class����</p>
+<p>public class StaticSyncBlock<br>{<br>    public static StaticSyncBlock instance;<br>    public StaticSyncBlock()<br>    {<br>        instance = this;<br>    }<br>    public static void method1()<br>    {<br>       synchronized(instance.getClass())<br>       {  </p>
+<pre><code>   }  
+}  
+</code></pre><p>}<br>������������ͨ��һ��public�ľ�̬instance�õ�һ��StaticSyncBlock����ʵ������ͨ������ʵ����getClass�����õ���Class������һ����������ʵ��ͨ��getClass�����õ��Ķ���ͬһ��Class���������ˣ������κ�һ��ʵ����getClass���������ԣ������ǻ�����ͨ��Class����ʹ��ͬ���ľ�̬����ͬ������Test���ľ�̬����method��StaticSyncBlock����������̬����ͬ�����������£�</p>
+<p>Test����method������StaticSyncBlock����method1��method2����ͬ��</p>
+<p>public class Test<br>{<br>    public static void method()<br>    {<br>        synchronized(StaticSyncBlock.class)<br>        {  </p>
+<pre><code>    }  
+}  
+</code></pre><p>}<br>ע�⣺��ʹ��synchronized��ͬ���෽��ʱ���Ǿ�̬��������ʹ��this��ͬ��������̬��������ʹ��Class������ͬ�������ǻ���Ӱ�졣��Ȼ��Ҳ�����ڷǾ�̬������ʹ��Class������ͬ����̬���������ھ�̬�����в���ʹ��this��ͬ���Ǿ�̬��������һ����ʹ��synchronized��ͬ���෽��ʱӦע�⡣</p>
+
+    </div>
+    <footer>
+        
+        
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2016/06/06/Thead-synchronized/" class="alignright next" title="多线程之Synchronized同步类方法">多线程之Synchronized同步类方法</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2016/06/13/Thread-synchronized-1/" data-title="ʹ��Synchronized��ͬ������" data-url="http://yoursite.com/2016/06/13/Thread-synchronized-1/"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"qiyj"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+		<!-- 多说公共JS代码 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/categories/java/">java</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag Cloud</h3>
+  <div class="entry">
+    <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="140" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1939828790&verifier=c03fa372&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://opiece.me" title="Chillax's Blog" target="_blank">Chillax</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hi,I&#39;m the designer of this theme. <br/>
+			You can download this theme on my github.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1939828790" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/qiyingjing" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2016 
+		
+		<a href="http://yoursite.com/about" target="_blank" title="YingJing Qi">YingJing Qi</a>
+		
+		</p>
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+
